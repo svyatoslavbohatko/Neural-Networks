@@ -1,0 +1,47 @@
+import numpy as np
+from mxnet import gluon, np, npx
+import mxnet as mx
+import os
+
+x = np.arange(12)
+print(x)
+print(x.shape)
+print(x.size)
+X = x.reshape(3, 4)
+print(X)
+x = np.array([1, 2, 4, 8])
+y = np.array([2, 2, 2, 2])
+print(x + y)
+print(x - y)
+print(x * y)
+print(x / y)
+print(x**y)
+print(np.exp(x))
+X = np.arange(12).reshape(3, 4)
+Y = np.array([[2, 1, 4, 3], [1, 2, 3, 4], [4, 3, 2, 1]])
+print(np.concatenate([X, Y], axis=0), np.concatenate([X, Y], axis=1))
+print(X == Y)
+print(X.sum())
+a = np.arange(3).reshape(3, 1)
+b = np.arange(2).reshape(1, 2)
+print(a, b)
+print(a + b)
+b = mx.nd.array([[1,2,3], [2,3,4]])
+print(type(b))
+M = np.array([[1, 2], [1, 4]])
+print(type(M))
+data = pd.read_csv(data_file)
+print(data)
+inputs, outputs = data.iloc[:, 0:2], data.iloc[:, 2]
+inputs = inputs.fillna(inputs.mean())
+print(inputs)
+inputs = pd.get_dummies(inputs, dummy_na=True)
+print(inputs)
+import os
+data_file = '../data/results11.csv'
+import pandas as pd
+data = pd.read_csv(data_file)
+print(data.head())
+# calculate the max of the NaN numbers of all columns 
+m = max(data.isnull().sum(axis = 0))
+data_dropmaxnan = data.dropna(axis = 1, thresh = len(data)+1-m)
